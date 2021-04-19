@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sigo-legacy-erp-mock
+  namespace: sigo-ms
+  labels:
+    name: sigo-legacy-erp-mock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: sigo-legacy-erp-mock
+  template:
+    metadata:
+      labels:
+        name: sigo-legacy-erp-mock
+    spec:
+      containers:
+        - name: sigo-legacy-erp-mock
+          imagePullPolicy: Always
+          image: juniormichieletto/sigo-legacy-erp-mock:latest
+          resources:
+            requests:
+              memory: "10Mi"
+            limits:
+              memory: "50Mi"
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sigo-legacy-erp-mock
+  namespace: sigo-ms
+spec:
+  type: ClusterIP
+  selector:
+      name: sigo-legacy-erp-mock
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+

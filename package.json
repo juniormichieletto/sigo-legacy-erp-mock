@@ -1,0 +1,15 @@
+{
+  "name": "sigo-erp-mock",
+  "version": "1.0.0",
+  "description": "ERP \u001b[1;5D\u001b[1;5D\u001b[D\u001b[D\u001b[DLegacy ERP Mock",
+  "main": "src/app",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
